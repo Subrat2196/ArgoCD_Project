@@ -29,8 +29,11 @@ docker run -p 5000:5000 vikash95/flask-hello:latest
     TLS certificates, and browsers don't trust those by default.
     >> Now use -> 
     username: admin
-    password: type on terminal "$encoded = kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}"
-[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encoded))"
+    password: type on terminal
+    
+    Command 1 -> $encoded = kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}
+
+    Command 2 -> [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encoded))
 
 12. Create an app in argocd with below key-values:
     * Application Name - flask-hello
