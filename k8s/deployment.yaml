@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-argo-hello
+spec:
+  selector:
+    matchLabels:
+      app: flask-argo-hello
+  template:
+    metadata:
+      labels:
+        app: flask-argo-hello
+    spec:
+      containers:
+      - name: flask-argo-hello
+        image: subrat2196/flask-argo-hello:latest
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
